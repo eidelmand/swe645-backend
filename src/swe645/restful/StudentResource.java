@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class StudentResource
  */
+
 @WebServlet("/StudentResource")
 public class StudentResource extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,6 +34,11 @@ public class StudentResource extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StudentDAO2 dao = new StudentDAO2();
 		StudentBean student = new StudentBean();
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "GET");
+		response.setHeader("Access-Control-Max-Age", "3600");
+		response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+		
 		if(request.getParameter("studentid") == null) {
 			ArrayList<String> ids = dao.getIDs();
 			String json = new Gson().toJson(ids);

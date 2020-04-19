@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+name: swe645-backend
+labels:
+  app: swe645-backend
+spec:
+template:
+  metadata:
+    labels:
+      app: swe645_backend
+      tier: swe645_backend
+  spec:
+    containers:
+    - name: swe645-backend
+      image: registry.hub.docker.com/eyaron94/swe645_backend
+      ports:
+      - containerPort: 8080

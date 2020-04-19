@@ -1,7 +1,5 @@
 pipeline {
-   agent any
-	
-	
+   agent any	
         tools {
           // Install the Maven version configured as "M3" and add it to the path.
           maven "Maven 3.6.3"
@@ -44,7 +42,7 @@ pipeline {
             steps{
 		   sh 'gcloud config set project extreme-citadel-271521'	
 		    sh 'gcloud container clusters get-credentials swe645 --zone us-east1-c'		
-		    sh 'kubectl set image deployments/swe645-backend swe645-backend=eyaron94/swe645_backend:latest'
+		    sh 'kubectl set image deployments/swe645-backend swe645-backend=registry.hub.docker.com/eyaron94/swe645_backend'
 		}
         }
     }

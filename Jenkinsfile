@@ -30,11 +30,13 @@ pipeline {
               //sh 'mvn -B -X clean package'
               sh 'ls target/'
               //sh 'mv target/*-SNAPSHOT.war Backend.war'              
-          }
+          }	  
+        }
+	stage("Docker") {
 	  steps {
 	     myapp = docker.build("eyaron94/swe645_backend:${env.BUILD_ID}")	
-	  }
-        }
+	  }	    
+	}
         /*
         stage("Push images") {
             steps {

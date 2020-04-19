@@ -27,7 +27,7 @@ pipeline {
               sh 'cd swe645-backend'
 	      sh 'ls'
 	      sh 'pwd'
-              sh 'mvn -B -X clean package'
+              //sh 'mvn -B -X clean package'
               sh 'ls'
               sh 'mv target/*-SNAPSHOT.war Backend.war'
               //myapp = docker.build("eyaron94/swe645_backend:${env.BUILD_ID}")
